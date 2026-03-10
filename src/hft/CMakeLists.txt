@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.30)
+set(CMAKE_TOOLCHAIN_FILE "/Users/hongyaotang/src/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
 project(hft)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -12,7 +13,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 include_directories(.)
 
 # 主程序
-add_executable(hft main.cpp)
+add_executable(hft main.cpp
+)
 
 # 对象池测试程序
 add_executable(test_object_pool test_object_pool.cpp)
@@ -25,3 +27,9 @@ target_link_libraries(usage_example pthread)
 # 对象池性能对比程序
 add_executable(pool_comparison pool_comparison.cpp)
 target_link_libraries(pool_comparison pthread)
+
+# 跳表测试程序
+add_executable(test_skip_list test_skip_list.cpp)
+
+# 跳表使用示例程序
+add_executable(skip_list_example skip_list_example.cpp)
